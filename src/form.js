@@ -3,11 +3,14 @@
 import createTodo from './createTodo';
 import storage from './storage';
 import projectManager from './project';
+import displayModule from './display';
 
 const formModule = (() => {
     const formContainer = document.createElement('div');
     formContainer.classList.add('form-container');
     formContainer.style.display = 'none'; // Initially hide the form
+
+    let form;
 
     const renderForm = () => {
         formContainer.innerHTML = `
@@ -35,7 +38,7 @@ const formModule = (() => {
         `;
         document.body.appendChild(formContainer);
         
-        const form = document.getElementById('todo-form');
+        form = document.getElementById('todo-form');
         form.addEventListener('submit', handleFormSubmit);
     };
 
@@ -54,6 +57,9 @@ const formModule = (() => {
 
         formContainer.style.display = 'none'; // Hide form after submission
         form.reset();
+
+        // Display todos after adding a new one
+        displayModule.displayTodos();
     };
 
     const showForm = () => {

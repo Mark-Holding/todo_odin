@@ -266,3 +266,20 @@
 #todo-form button[type="submit"]:hover {
     background-color: #166b96;
 }
+
+/* todo items dynamically added to todo lists */
+.todo-item {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todo-item:hover {
+    background-color: #f0f0f0;
+}
