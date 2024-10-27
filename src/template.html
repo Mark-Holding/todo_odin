@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <button class="hamburger">&#9776;</button>
+            <nav class="filter-nav">
+                <ul>
+                    <li>All</li>
+                    <li>Today</li>
+                    <li>Next 7 Days</li>
+                    <li>Completed</li>
+                </ul>
+                <button class="create-todo">Create New+</button>
+            </nav>
+            <div class="projects">
+                <h3>Projects:</h3>
+                <ul class="project-list">
+                </ul>
+                <button class="add-project">+</button>
+            </div>
+        </aside>
+
+        <!-- Middle Section -->
+        <main class="todo-section">
+            <div class="todo-container">
+                <div class="todo-category important-urgent" id="do">
+                    <h2>Do <span class="info">?</span></h2>
+                    <div class="todo-list">
+                        <!-- Example todo item -->
+                        <div class="todo-item">
+                            <p>Buy phone case</p>
+                            <p class="due-date">12/09/2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="todo-category important-not-urgent" id="schedule">
+                    <h2>Schedule <span class="info">?</span></h2>
+                    <div class="todo-list"></div>
+                </div>
+                <div class="todo-category not-important-urgent" id="delegate">
+                    <h2>Delegate <span class="info">?</span></h2>
+                    <div class="todo-list"></div>
+                </div>
+                <div class="todo-category not-important-not-urgent" id="delete">
+                    <h2>Delete <span class="info">?</span></h2>
+                    <div class="todo-list"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Section -->
+        <section class="details-section">
+            <h2>Notes</h2>
+            <div class="todo-details">
+                <!-- Notes from the selected todo item will appear here -->
+            </div>
+            <button class="mark-complete">Mark Complete</button>
+        </section>
+    </div>
+</body>
+</html>
+

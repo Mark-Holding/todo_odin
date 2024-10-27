@@ -1,0 +1,195 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container */
+.container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #083a56;
+    color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hamburger {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.filter-nav ul {
+    list-style-type: none;
+    padding: 10px 0;
+}
+
+.filter-nav ul li {
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.create-todo {
+    background-color: #1d8fc1;
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.projects h3 {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.project-list {
+    list-style-type: none;
+    padding: 10px 0;
+}
+
+.project-list li {
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.add-project {
+    background-color: #1d8fc1;
+    color: #ffffff;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Todo Section */
+.todo-section {
+    flex-grow: 1;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+/* Todo Container (Grid Parent) */
+.todo-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr; /* Responsive columns */
+    grid-auto-rows: minmax(300px, auto);
+}
+
+/* Todo Categories (Grid Children) */
+.todo-category {
+    background-color: #e1f7e1;
+    border: 1px solid #c1e1c1;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.todo-category.important-urgent { background-color: #b2e8b2; }
+.todo-category.important-not-urgent { background-color: #e1ffb2; }
+.todo-category.not-important-urgent { background-color: #f7d7f7; }
+.todo-category.not-important-not-urgent { background-color: #ffc6c6; }
+
+.todo-category h2 {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info {
+    font-size: 14px;
+    background-color: #083a56;
+    color: #ffffff;
+    padding: 2px 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.todo-list {
+    margin-top: 10px;
+    overflow-y: auto;
+    max-height: 150px;
+}
+
+.todo-item {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-item .due-date {
+    font-size: 12px;
+    color: #666;
+}
+
+
+/* Details Section */
+.details-section {
+    width: 250px;
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.todo-details {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #d4d4d4;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+.mark-complete {
+    background-color: #1d8fc1;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.mark-complete:hover {
+    background-color: #1a78a0;
+}
+
+/* Scrollbar Styles */
+.todo-list::-webkit-scrollbar, .todo-details::-webkit-scrollbar {
+    width: 6px;
+}
+
+.todo-list::-webkit-scrollbar-track, .todo-details::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.todo-list::-webkit-scrollbar-thumb, .todo-details::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.todo-list::-webkit-scrollbar-thumb:hover, .todo-details::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
