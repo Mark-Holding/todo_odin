@@ -1,15 +1,15 @@
-const PROJECT_STORAGE_KEY = 'projects';
+// projectManager.js
 
 const projectManager = (() => {
-    const getProjects = () => {
-        return JSON.parse(localStorage.getItem(PROJECT_STORAGE_KEY)) || [];
-    };
+    const STORAGE_KEY = 'projects';
+
+    const getProjects = () => JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
     const addProject = (projectName) => {
         const projects = getProjects();
         if (!projects.includes(projectName)) {
             projects.push(projectName);
-            localStorage.setItem(PROJECT_STORAGE_KEY, JSON.stringify(projects));
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
         }
     };
 

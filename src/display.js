@@ -1,4 +1,7 @@
+//display.js
+
 import storage from './storage';
+import { isToday, isWithinInterval, addDays, startOfDay } from 'date-fns';
 
 const displayModule = (() => {
     const categories = {
@@ -13,19 +16,38 @@ const displayModule = (() => {
     let selectedTodo = null; // Keep track of the currently selected todo
 
     // Function to display all todos
-    const displayTodos = () => {
-        // Clear existing todos from the categories
-        Object.values(categories).forEach(category => category.querySelector('.todo-list').innerHTML = '');
-
-        const todos = storage.getTodos();
-
+    const displayTodos = (todos, filter = 'All') => {
+        // Instead of clearing `.todo-section`, clear each `.todo-list`
+    document.querySelectorAll('.todo-list').forEach(list => {
+        list.innerHTML = ''; // Clear only todo items, not the structure
+    });
+    
         todos.forEach(todo => {
-            if (!todo.isComplete) {// Only display incomplete todos
+            let shouldDisplay = false;
+    
+            if (filter === 'All') {
+                shouldDisplay = true;
+            } else if (filter === 'Today') {
+                shouldDisplay = isToday(new Date(todo.dueDate));
+            } else if (filter === 'Next 7 Days') {
+                shouldDisplay = isWithinInterval(new Date(todo.dueDate), {
+                    start: startOfDay(new Date()), // Sets start to the beginning of today
+                    end: addDays(startOfDay(new Date()), 6) // Includes today + 6 more days
+                });
+            } else if (filter === 'Completed') {
+                shouldDisplay = todo.isComplete;
+            } else if (filter === todo.projectName) {
+                shouldDisplay = true; // Project-specific filter
+            }
+    
+            // Display incomplete todos by default if no filter is applied
+            if (shouldDisplay && (filter === 'Completed' || !todo.isComplete)) {
                 const todoElement = createTodoElement(todo);
                 const targetCategory = determineCategory(todo);
-
+    
                 if (targetCategory) {
-                targetCategory.querySelector('.todo-list').appendChild(todoElement);
+                    console.log("Appending todo to target category:", targetCategory); // Debugging line
+                    targetCategory.querySelector('.todo-list').appendChild(todoElement);
                 }
             }
         });
@@ -70,7 +92,7 @@ const displayModule = (() => {
 
             // Clear the details section and refresh the displayed todos
             detailsContainer.innerHTML = '';
-            displayTodos();
+            displayTodos(storage.getTodos());
         }
     };
 

@@ -2,7 +2,7 @@
 
 import createTodo from './createTodo';
 import storage from './storage';
-import projectManager from './project';
+import projectManager from './projectManager';
 import displayModule from './display';
 
 const formModule = (() => {
@@ -59,7 +59,7 @@ const formModule = (() => {
         form.reset();
 
         // Display todos after adding a new one
-        displayModule.displayTodos();
+        displayModule.displayTodos(storage.getTodos());
     };
 
     const showForm = () => {

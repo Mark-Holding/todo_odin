@@ -1,3 +1,5 @@
+// storage.js
+
 const STORAGE_KEY = 'todos';
 
 const storage = {
